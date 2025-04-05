@@ -10,17 +10,17 @@ pipeline {
                 '''
             }
         }
-    }
 
-    stages {
-        stage('Creating File2.txt') {
+        stage ('Testing File1.tst') {
             steps {
                 sh '''
-                echo "creating file2.txt"
-                echo "ruth is cool asbend" >> file2.txt
+                echo "starting test the file"
+                test -f file1.txt
+                grep "david" file1.txt
                 '''
             }
         }
+
     }
 
 }
