@@ -12,7 +12,7 @@ pipeline {
         }
     }
 
-    stages {
+    /*stages {
         stage('Testing file1.txt') {
             steps {
                 sh '''
@@ -23,4 +23,5 @@ pipeline {
             }
         }
     }
+    */
 }
