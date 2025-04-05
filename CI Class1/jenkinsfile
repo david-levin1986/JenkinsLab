@@ -12,16 +12,16 @@ pipeline {
         }
     }
 
-    /*stages {
-        stage('Testing file1.txt') {
+        stages {
+        stage('Creating File2.txt') {
             steps {
                 sh '''
-                echo "testing file1.txt"
-                test -f file1.txt
-                grep david test1.txt
+                echo "creating file2.txt"
+                echo "ruth is cool asbend" >> file2.txt
                 '''
             }
         }
     }
-    */
+
+
 }
