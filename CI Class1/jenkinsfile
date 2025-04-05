@@ -2,9 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello From Jenkins') {
+        stage('Creating File1.txt') {
             steps {
-                echo 'Hello From Jenkins'
+                sh '''
+                echo "creating file1.txt"
+                echo "david is cool asbend" >> file1.txt
+                '''
+            }
+        }
+    }
+
+    stages {
+        stage('Testing file1.txt') {
+            steps {
+                sh '''
+                echo "testing file1.txt"
+                test -f file1.txt
+                grep david test1.txt
+                '''
             }
         }
     }
