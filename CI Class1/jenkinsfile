@@ -18,15 +18,15 @@ pipeline {
             steps {
                 sh '''
                 
-                echo "Starting Building $app" >> files/$file
+                echo "Starting Building $app" >> $file
                 '''
             }
         }
         stage('Check Status Stage') {
             steps {
                 sh '''
-                test -f files/$file
-                grep "$app" files/$file
+                test -f $file
+                grep "$app" $file
                 '''
             }
         }
