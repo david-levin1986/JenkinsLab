@@ -13,24 +13,5 @@ pipeline {
                 '''
             }
         }
-
-        stage('Building Stage') {
-            steps {
-                sh '''
-                echo "Building $app" >> $path
-                '''
-            }
-        }
-
-                stage('Building Test') {
-            steps {
-                sh '''
-                echo "Testing The Building $app Status"
-                find -f $path
-                grep $app $path
-                echo "$app Succesfuly Deploy"
-                '''
-            }
-        }
     }
 }
