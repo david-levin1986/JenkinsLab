@@ -20,5 +20,13 @@ pipeline {
                 '''
             }
         }
+        stage('Check Status Stage') {
+            steps {
+                sh '''
+                test -f files/$file
+                grep $app files/$file
+                '''
+            }
+        }
     }
 }
