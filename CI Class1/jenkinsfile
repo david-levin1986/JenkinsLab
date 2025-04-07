@@ -8,7 +8,14 @@ pipeline {
         stage('Starting Massage') {
             steps {
                 sh '''
-                echo "Building $app"
+                echo "Starting Building $app"
+                '''
+            }
+        }
+        stage('Building Stage') {
+            steps {
+                sh '''
+                echo "Starting Building $app" >> files/$file
                 '''
             }
         }
