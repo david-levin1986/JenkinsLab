@@ -2,34 +2,46 @@ pipeline {
     agent any
     environment {
         app = 'Davids App'
-        file = 'Files/File1.txt'
+        
     }
     stages {
         stage('Pre Requests') {
             steps {
                 sh '''
                 rm -rf *
-                mkdir -p Files                
+                mkdir -p Files
                 '''
             }
         }
         stage('Building Stage') {
             steps {
                 sh '''
+                file1 = 'Files/File1.txt'
+                file2 = 'Files/File2.txt'
                 echo "Starting Building $app"
-                echo "Starting Building $app" >> $file
-                cat $file
+                echo "Starting Building $app" >> $file1
+                echo "47" >> $file2
                 '''
             }
         }
         stage('Check Status Stage') {
             steps {
                 sh '''
-                count=$(wc -m < $file)
-                if [ $count -ge 5 ]; then
+                file1 = 'Files/File1.txt'
+                file2 = 'Files/File2.txt'
+                count1=$(wc -m < $file1)
+                count2=$(wc -m < $file2)
+                
+                if [ $count1 -ge 5 ]; then
                     echo "$app: Build successful"
                 else
-                    echo "$app: Build failed - file content too short"
+                    echo "$app: Build failed "
+                fi
+
+                if [ $count2 -le 40]; then
+                    echo "deployment of $app faild"
+                else
+                    echo "$app Deploy Succesfuly"
                 fi
                 '''
             }
