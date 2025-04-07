@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('"Project Info') {
+        stage('Project Info') {
             steps {
                 sh '''
                 echo "Start Building $app"
