@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         app = 'Davids App'
-        path = '/files/File1.txt'
+        file = 'File1.txt'
     }
     stages {
         stage('Starting Massage') {
