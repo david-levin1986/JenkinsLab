@@ -15,8 +15,10 @@ pipeline {
         }
         stage('Building stage') {
             steps {
+                sh '''
                 echo "Building $app"
                 echo "building $app" >> $path
+                '''
             }
         }
         stage('Build Result') {
