@@ -25,12 +25,12 @@ pipeline {
         stage('Check Status Stage') {
             steps {
                 sh '''
-                def fileContent = sh(script: "cat $file", returnStdout: true).trim()
-                    if (fileContent.length() >= 5) {
-                        echo "$app: Build successful"
-                    } else {
-                        echo "$app: Build failed - file content too short"
-                    }
+                count=$(wc -m < $file)
+                if [ $count -ge 5 ]; then
+                    echo "$app: Build successful"
+                else
+                    echo "$app: Build failed - file content too short"
+                fi
                 '''
             }
         }
