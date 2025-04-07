@@ -2,14 +2,33 @@ pipeline {
     agent any
     environment {
         app = 'Davids App'
-        message = "Building $app"
+        path = 'filles/file1.txt'
         
     }
     stages {
-        stage('Hello') {
+        stage('Starting Massage') {
             steps {
                 sh '''
-                echo $message
+                echo "Building $app"
+                '''
+            }
+        }
+
+        stage('Building Stage') {
+            steps {
+                sh '''
+                echo "Building $app" >> $path
+                '''
+            }
+        }
+
+                stage('Building Test') {
+            steps {
+                sh '''
+                echo "Testing The Building $app Status"
+                find -f $path
+                grep $app $path
+                echo "$app Succesfuly Deploy"
                 '''
             }
         }
