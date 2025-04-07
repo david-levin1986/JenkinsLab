@@ -7,7 +7,9 @@ pipeline {
     stages {
         stage('"Project Info') {
             steps {
+                sh '''
                 echo "Start Building $app"
+                '''
             }
         }
         stage('Building stage') {
@@ -17,7 +19,9 @@ pipeline {
         }
         stage('Build Result') {
             steps {
+                sh '''
                 echo "$app Build Succesfuly"
+                '''
             }
         }
     }
