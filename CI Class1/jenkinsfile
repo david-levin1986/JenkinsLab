@@ -3,6 +3,7 @@ pipeline {
     environment {
         app = 'Davids App'
         file = 'Files/File1.txt'
+        count = $(wc -m < "$FILE")
     }
     stages {
         stage('Pre Requests') {
@@ -18,6 +19,7 @@ pipeline {
                 sh '''
                 echo "Starting Building $app"
                 echo "Starting Building $app" >> $file
+                cat $file
                 '''
             }
         }
@@ -25,7 +27,10 @@ pipeline {
             steps {
                 sh '''
                 test -f $file
-                grep "$app" $file
+                if [ "$count" -ge 5 ]; then
+                echo "$app Succesfuli Deploy"
+                else
+                echo "The Deployment of $app Faild"
                 '''
             }
         }
