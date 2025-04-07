@@ -20,7 +20,7 @@ pipeline {
                 file2='Files/File2.txt'
                 echo "Starting Building $app"
                 echo "Starting Building $app" >> $file1
-                echo "37" >> $file2
+                echo "50" >> $file2
                 '''
             }
         }
