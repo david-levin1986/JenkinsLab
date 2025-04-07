@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh '''
                 file2='Files/File2.txt'               
-                testnumber=$(cat file2)
+                testnumber=$(cat $file2)
                 if [ "$testnumber" -le 30 ]; then
                     echo "deployment of $app faild"
                 else
