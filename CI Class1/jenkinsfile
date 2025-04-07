@@ -1,11 +1,14 @@
 pipeline {
     agent any
-
+    environment {
+        message = 'Hello From Jenkins'
+        
+    }
     stages {
         stage('Hello') {
             steps {
                 sh '''
-                echo "Hello From Jenkins"
+                echo $message
                 '''
             }
         }
