@@ -5,19 +5,18 @@ pipeline {
         file = 'Files/File1.txt'
     }
     stages {
-        stage('Starting Massage') {
+        stage('Pre Requests') {
             steps {
                 sh '''
                 rm -rf *
-                mkdir -p Files
-                echo "Starting Building $app"
+                mkdir -p Files                
                 '''
             }
         }
         stage('Building Stage') {
             steps {
                 sh '''
-                
+                echo "Starting Building $app"
                 echo "Starting Building $app" >> $file
                 '''
             }
