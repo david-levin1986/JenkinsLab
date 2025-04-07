@@ -15,6 +15,7 @@ pipeline {
         stage('Building Stage') {
             steps {
                 sh '''
+                mkdir -p files
                 echo "Starting Building $app" >> files/$file
                 '''
             }
