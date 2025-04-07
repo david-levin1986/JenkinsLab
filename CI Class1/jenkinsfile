@@ -3,7 +3,6 @@ pipeline {
     environment {
         app = 'Davids App'
         file = 'Files/File1.txt'
-        count=$(wc -m < $file)
     }
     stages {
         stage('Pre Requests') {
@@ -26,12 +25,12 @@ pipeline {
         stage('Check Status Stage') {
             steps {
                 sh '''
-                test -f $file
-                if [ "$count" -ge 5 ]; then                
-                echo "$app Succesfuli Deploy"
-                else
-                echo "The Deployment of $app Faild"
-                fi
+                def fileContent = sh(script: "cat $file", returnStdout: true).trim()
+                    if (fileContent.length() >= 5) {
+                        echo "$app: Build successful"
+                    } else {
+                        echo "$app: Build failed - file content too short"
+                    }
                 '''
             }
         }
