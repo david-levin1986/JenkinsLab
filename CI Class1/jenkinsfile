@@ -2,25 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Creating File1.txt') {
+        stage('Building and Testing Davids app') {
             steps {
-                sh '''
-                echo "creating file1.txt"
-                echo "david is cool asbend" >> file1.txt
-                '''
+                echo 'Start Building Step'
             }
         }
-
-        stage ('Testing File1.tst') {
+        stage('Building stage') {
             steps {
-                sh '''
-                echo "starting test the file"
-                test -f file1.txt
-                grep "david" file1.txt
-                '''
+                echo 'Building'
             }
         }
-
+        stage('Testing stage') {
+            steps {
+                echo 'Davids app Build Succesfuly'
+            }
+        }
     }
-
 }
