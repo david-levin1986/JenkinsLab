@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-        message = 'Hello From Jenkins'
+        app = 'Davids App'
+        message = "Building $app"
         
     }
     stages {
