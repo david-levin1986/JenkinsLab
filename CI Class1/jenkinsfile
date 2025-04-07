@@ -9,7 +9,7 @@ pipeline {
             steps {
                 sh '''
                 rm -rf *
-                mkdir Files
+                mkdir -p Files
                 echo "Starting Building $app"
                 '''
             }
@@ -17,7 +17,7 @@ pipeline {
         stage('Building Stage') {
             steps {
                 sh '''
-                mkdir -p files
+                
                 echo "Starting Building $app" >> files/$file
                 '''
             }
