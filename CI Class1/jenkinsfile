@@ -7,17 +7,17 @@ pipeline {
     stages {
         stage('"Project Info') {
             steps {
-                echo 'Start Building $app'
+                echo "Start Building $app"
             }
         }
         stage('Building stage') {
             steps {
-                echo 'Building $app'
+                echo "Building $app"
             }
         }
         stage('Build Result') {
             steps {
-                echo '$app Build Succesfuly'
+                echo "$app Build Succesfuly"
             }
         }
     }
