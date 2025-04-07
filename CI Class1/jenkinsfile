@@ -32,7 +32,7 @@ pipeline {
                 count1=$(wc -m < $file1)
                 count2=$(wc -m < $file2)
                 testnumber=$(cat Files/File2.txt)
-                if [ $testnumber -le 40]; then
+                if [ "$testnumber" -le 40]; then
                     echo "deployment of $app faild"
                 else
                     echo "$app Deploy Succesfuly"
