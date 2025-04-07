@@ -2,12 +2,14 @@ pipeline {
     agent any
     environment {
         app = 'Davids App'
-        file = 'File1.txt'
+        file = 'Files/File1.txt'
     }
     stages {
         stage('Starting Massage') {
             steps {
                 sh '''
+                rm -rf *
+                mkdir Files
                 echo "Starting Building $app"
                 '''
             }
