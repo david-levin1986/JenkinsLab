@@ -1,20 +1,23 @@
 pipeline {
     agent any
+    environment {
+      app = 'Davids app'  
+    }
 
     stages {
-        stage('Building and Testing Davids app') {
+        stage('"Project Info') {
             steps {
-                echo 'Start Building Step'
+                echo 'Start Building $app'
             }
         }
         stage('Building stage') {
             steps {
-                echo 'Building'
+                echo 'Building $app'
             }
         }
-        stage('Testing stage') {
+        stage('Build Result') {
             steps {
-                echo 'Davids app Build Succesfuly'
+                echo '$app Build Succesfuly'
             }
         }
     }
