@@ -32,12 +32,6 @@ pipeline {
                 count1=$(wc -m < $file1)
                 count2=$(wc -m < $file2)
                 
-                if [ $count1 -ge 5 ]; then
-                    echo "$app: Build successful"
-                else
-                    echo "$app: Build failed "
-                fi
-
                 if [ $count2 -le 40]; then
                     echo "deployment of $app faild"
                 else
