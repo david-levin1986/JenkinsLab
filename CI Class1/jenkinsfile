@@ -16,8 +16,8 @@ pipeline {
         stage('Building Stage') {
             steps {
                 sh '''
-                file1 = 'Files/File1.txt'
-                file2 = 'Files/File2.txt'
+                file1='Files/File1.txt'
+                file2='Files/File2.txt'
                 echo "Starting Building $app"
                 echo "Starting Building $app" >> $file1
                 echo "47" >> $file2
@@ -27,8 +27,8 @@ pipeline {
         stage('Check Status Stage') {
             steps {
                 sh '''
-                file1 = 'Files/File1.txt'
-                file2 = 'Files/File2.txt'
+                file1='Files/File1.txt'
+                file2='Files/File2.txt'
                 count1=$(wc -m < $file1)
                 count2=$(wc -m < $file2)
                 
