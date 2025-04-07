@@ -8,27 +8,9 @@ pipeline {
     stages {
         stage('Project Info') {
             steps {
-
-                echo "Start Building $app"
-
-            }
-        }
-        stage('Building stage') {
-            steps {
                 sh '''
-                    echo "Hello"
+                    ls
                 '''
             }
         }
-        stage('Build Result') {
-            steps {
-                sh '''
-                    echo "testing stage is starting"
-                    find -f $path
-                    grep $app $path
-                    echo "$app Build Successfully"
-                '''
-            }
-        }
-    }
 }
