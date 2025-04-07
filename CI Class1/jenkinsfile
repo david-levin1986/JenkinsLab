@@ -38,9 +38,9 @@ pipeline {
                     echo "$app: Build failed "
                 fi
 
-                if [ $count2 -lt 40]; then
+                if [ $count2 -le 40]; then
                     echo "deployment of $app faild"
-                if [ $count2 -ge 40]; then
+                else
                     echo "$app Deploy Succesfuly"
                 fi
                 '''
