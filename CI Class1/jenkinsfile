@@ -1,16 +1,10 @@
 pipeline {
     agent any
-    environment {
-      app = 'Davids app'
-      path = 'files/file1.txt' 
-    }
 
     stages {
-        stage('Project Info') {
+        stage('Hello') {
             steps {
-                sh '''
-                    ls
-                '''
+                echo 'Hello World'
             }
         }
     }
