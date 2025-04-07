@@ -16,18 +16,19 @@ pipeline {
         stage('Building stage') {
             steps {
                 sh '''
-                echo Building $app
-                echo building $app >> $path
+                     ls -l
+                     # echo Building $app
+                     # echo building $app >> $path
                 '''
             }
         }
         stage('Build Result') {
             steps {
                 sh '''
-                echo "testing stage is starting"
-                find -f $path
-                grep $app $path
-                echo "$app Build Successfully"
+                    echo "testing stage is starting"
+                    find -f $path
+                    grep $app $path
+                    echo "$app Build Successfully"
                 '''
             }
         }
